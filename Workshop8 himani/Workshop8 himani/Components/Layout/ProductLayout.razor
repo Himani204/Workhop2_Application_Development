@@ -1,0 +1,30 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page d-flex" style="min-height: 100vh;"> 
+    <!-- Sidebar - Exact same gradient as MainLayout -->
+    <div class="sidebar" style="width: 250px; flex-shrink: 0; background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);">
+        <NavMenu />
+    </div>
+
+    <div class="d-flex flex-column flex-grow-1">
+        <!-- Top row - Matches the original dark top bar with "About" link -->
+        <div class="top-row px-4 d-flex justify-content-end align-items-center" style="height: 3.5rem; background-color: #1b1b1b;">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank" class="text-white-50">About</a>
+        </div>
+
+        <!-- Custom Dark Header with "My Store App" centered -->
+        <header class="text-center py-4" style="background-color: #1b1b1b;">
+            <h2 class="text-white mb-0">My Store App</h2>
+        </header>
+
+        <!-- Main Content Area - White background like other pages -->
+        <main class="flex-grow-1 px-4 py-3">
+            @Body
+        </main>
+
+        <!-- Custom Footer -->
+        <footer class="text-center py-3 border-top" style="background-color: #f8f9fa;">
+            © 2025 My Store
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@page "/foodmenu"
+
+<h3>Food Menu</h3>
+
+<button class="btn btn-outline-primary me-2" @onclick="SortByName">
+    Sort by Name @(nameAscending ? "↑" : "↓")
+</button>
+<button class="btn btn-outline-primary" @onclick="SortByPrice">
+    Sort by Price @(priceAscending ? "↑" : "↓")
+</button>
+
+<hr />
+
+@foreach (var item in items)
+{
+    <ItemCard Name="@item.Name"
+              Ingredients="@item.Ingredients"
+              Price="@item.Price" />
+}
+
+@code {
+    private List<FoodItem> items = new()
+    {
+        new FoodItem { Name="Pizza", Ingredients="Cheese, Flour", Price=800 },
+        new FoodItem { Name="Burger", Ingredients="Bun, Patty", Price=550 },
+        new FoodItem { Name="Pasta", Ingredients="Sauce, Pasta", Price=500 }
+    };
+
+    private bool nameAscending = true;
+    private bool priceAscending = true;
+
+    void SortByName()
+    {
+        if (nameAscending)
+            items = items.OrderBy(i => i.Name).ToList();
+        else
+            items = items.OrderByDescending(i => i.Name).ToList();
+
+        nameAscending = !nameAscending; 
+    }
+
+    void SortByPrice()
+    {
+        if (priceAscending)
+            items = items.OrderBy(i => i.Price).ToList();
+        else
+            items = items.OrderByDescending(i => i.Price).ToList();
+
+        priceAscending = !priceAscending;
+    }
+
+    class FoodItem
+    {
+        public string Name { get; set; } = "";
+        public string Ingredients { get; set; } = "";
+        public double Price { get; set; }
+    }
+}

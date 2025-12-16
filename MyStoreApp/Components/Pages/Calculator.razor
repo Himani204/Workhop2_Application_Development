@@ -1,0 +1,43 @@
+﻿@page "/calculator"
+<h3>Simple Calculator</h3>
+
+<input type="number" placeholder="Enter first number" @bind="num1" />
+<br /><br />
+
+<input type="number" placeholder="Enter second number" @bind="num2" />
+<br /><br />
+
+<button @onclick="Add">Add</button>
+<button @onclick="Subtract">Subtract</button>
+<button @onclick="Multiply">Multiply</button>
+<button @onclick="Divide">Divide</button>
+
+<p><b>Result:</b> @result</p>
+@code {
+    double num1 = 0;
+    double num2 = 0;
+    double result = 0;
+
+    void Add()
+    {
+        result = num1 + num2;
+    }
+
+    void Subtract()
+    {
+        result = num1 - num2;
+    }
+
+    void Multiply()
+    {
+        result = num1 * num2;
+    }
+
+    void Divide()
+    {
+        if (num2 != 0)
+        {
+            result = num1 / num2;
+        }
+    }
+}

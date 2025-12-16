@@ -1,0 +1,16 @@
+﻿<div class="card m-2" style="width: 200px;">
+    <img src="@ImageUrl" class="card-img-top" />
+
+    <div class="card-body">
+        <h5>@Name</h5>
+        <p>Price: Rs. @Price</p>
+        <p>❤️ Likes: @Likes</p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; }
+    [Parameter] public string ImageUrl { get; set; }
+    [Parameter] public decimal Price { get; set; }
+    [Parameter] public int Likes { get; set; }
+}
